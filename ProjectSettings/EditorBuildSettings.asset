@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/BagEndScene2.unity
     guid: 2cc64e567b2b42745a88ea69d7cd0f03
   - enabled: 0
@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/K2Examples/KinectDemos/MultiSceneDemo/Scene2-GesturesDemo.unity
     guid: 9070f8ae67139a94fb288cc38da290be
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lothlorien.unity
     guid: d17a6d8c39e91ae498c4e88024224101
   m_configObjects: {}

@@ -7,27 +7,85 @@ using System;
 public class BagEndController : MonoBehaviour, KinectGestures.GestureListenerInterface
 {
 
-    public List<BagEndInteractibleBase> BagEndInteractibles = new List<BagEndInteractibleBase>();
+    public List<AvatarController> AvatarList = new List<AvatarController>();
+    //public List<BagEndInteractibleBase> BagEndInteractibles = new List<BagEndInteractibleBase>();
     public int MaxUsers = 2;
-    
+
+    private List<Vector3> AvatarScale = new List<Vector3>();
     private int _UserCount = 0;
     public Text UserDebugTxt;
 
 
-    private void CheckAddNewEffect(long userId, int userIndex)
+    private void Awake()
     {
-        //make sure we have enough effects to go around
-        if(userIndex <= MaxUsers)
+        _UserCount = 0;
+        //get our starting scales for characters
+        foreach (AvatarController avatar in AvatarList)
         {
-            if(userIndex <= BagEndInteractibles.Count)
+            Vector3 curAvatarScale = avatar.transform.localScale;
+            AvatarScale.Add(curAvatarScale);
+            avatar.gameObject.transform.localScale = Vector3.zero;
+        }
+        SetUsers();
+    }
+
+    private void SetUsers()
+    {
+        //first scale down our items, only scale up if we exist
+        foreach(AvatarController avatar in AvatarList)
+        {
+            avatar.gameObject.transform.localScale = Vector3.zero;       
+        }
+
+        for(int i = 0; i < _UserCount; i++)
+        {
+            if(i <= 2)
             {
-                //randomly grab one of our bag end interactibles and apply
-                AddUserEffect(userId, userIndex);
+                AvatarController newAvatar = AvatarList[i];
+                Vector3 curAvatarScale = AvatarScale[i];
+                newAvatar.gameObject.transform.localScale = curAvatarScale;
             }
         }
     }
 
-    private void AddUserEffect(long userId, int userIndex)
+    void Update()
+    {
+
+        if (Input.GetKeyDown("a"))
+        {
+            ToggleKinectSettingsOn(true);
+        }
+        if (Input.GetKeyDown("s"))
+        {
+            ToggleKinectSettingsOn(false);
+        }
+    }
+
+    void ToggleKinectSettingsOn(bool isKinectSettingsOn = true)
+    {
+        if (KinectManager.Instance != null)
+        {
+            KinectManager.Instance.displayUserMap = isKinectSettingsOn;
+            KinectManager.Instance.displayColorMap = isKinectSettingsOn;
+            KinectManager.Instance.displaySkeletonLines = isKinectSettingsOn;
+        }
+
+    }
+
+    /*    private void CheckAddNewEffect(long userId, int userIndex)
+        {
+            //make sure we have enough effects to go around
+            if(userIndex <= MaxUsers)
+            {
+                if(userIndex <= BagEndInteractibles.Count)
+                {
+                    //randomly grab one of our bag end interactibles and apply
+                    AddUserEffect(userId, userIndex);
+                }
+            }
+        }*/
+
+    /*private void AddUserEffect(long userId, int userIndex)
     {
         //loop through current effects and only add numbers that are not being used
         List<BagEndInteractibleBase> nonUsedInteractibles = new List<BagEndInteractibleBase>();
@@ -42,7 +100,7 @@ public class BagEndController : MonoBehaviour, KinectGestures.GestureListenerInt
 
         int ranItem = UnityEngine.Random.Range(0, nonUsedInteractibles.Count);
         nonUsedInteractibles[ranItem].OnShow(userId, userIndex);
-    }
+    }*/
 
 
     /// <summary>
@@ -51,32 +109,32 @@ public class BagEndController : MonoBehaviour, KinectGestures.GestureListenerInt
     /// </summary>
     /// <param name="userId"></param>
     /// <param name="userIndex"></param>
-    private void RemoveUser(long userId, int userIndex)
-    {
-        int i = 0;
-        BagEndInteractibleBase curInteractible;
-        //loop through our current effects, find the ID that matches this items and turn off
-        for (i = 0; i<BagEndInteractibles.Count; i++)
-        {
-            curInteractible = BagEndInteractibles[i];
-            if(curInteractible.UserID == userId)
-            {
-                curInteractible.OnHide(userId, userIndex);
-            }
-        }
-        //if we were the first user, our second user is now going to be swapped. We need to reset its user index
-        if(userIndex == 0)
-        {
-            for (i = 0; i < BagEndInteractibles.Count; i++)
-            {
-                curInteractible = BagEndInteractibles[i];
-                if (curInteractible.UserID != 0)
-                {
-                    curInteractible.SetUserIndex(0);
-                }
-            }
-        }
-    }
+    /* private void RemoveUser(long userId, int userIndex)
+     {
+         int i = 0;
+         BagEndInteractibleBase curInteractible;
+         //loop through our current effects, find the ID that matches this items and turn off
+         for (i = 0; i<BagEndInteractibles.Count; i++)
+         {
+             curInteractible = BagEndInteractibles[i];
+             if(curInteractible.UserID == userId)
+             {
+                 curInteractible.OnHide(userId, userIndex);
+             }
+         }
+         //if we were the first user, our second user is now going to be swapped. We need to reset its user index
+         if(userIndex == 0)
+         {
+             for (i = 0; i < BagEndInteractibles.Count; i++)
+             {
+                 curInteractible = BagEndInteractibles[i];
+                 if (curInteractible.UserID != 0)
+                 {
+                     curInteractible.SetUserIndex(0);
+                 }
+             }
+         }
+     }*/
 
 
     /// <summary>
@@ -86,17 +144,14 @@ public class BagEndController : MonoBehaviour, KinectGestures.GestureListenerInt
     /// <param name="userIndex">User index</param>
     public void UserDetected(long userId, int userIndex)
     {
-
-        Debug.Log("a user has been detected");
-        Debug.Log("userID: " + userId);
-        Debug.Log("userIndex: " + userIndex);
         // the gestures are allowed for the primary user only
         KinectManager manager = KinectManager.Instance;
         if (!manager)
             return;
 
         _UserCount++;
-        CheckAddNewEffect(userId, userIndex);
+        SetUsers();
+        //CheckAddNewEffect(userId, userIndex);
 
         //if this is our first user, init the swipe panel
         //       if (_UserCount == 1)
@@ -119,7 +174,7 @@ public class BagEndController : MonoBehaviour, KinectGestures.GestureListenerInt
 	public void UserLost(long userId, int userIndex)
     {
         _UserCount--;
-        RemoveUser(userId, userIndex);
+        SetUsers();
 
         //        if (_UserCount == 0)
         //            LastUserLeft();

@@ -20,7 +20,7 @@ public class FollowAnimation : MonoBehaviour
     {
         DOTween.Kill(this.gameObject.transform);
         this.gameObject.transform.DOMove(ObjectToFollow.transform.position, _FollowSpeed);
-        this.gameObject.transform.DORotate(ObjectToFollow.transform.eulerAngles, _FollowSpeed);
+        //this.gameObject.transform.DORotate(ObjectToFollow.transform.eulerAngles, _FollowSpeed);
         //this.gameObject.transform.DOMove(ObjectToFollow.transform, 0.3, false);
         //this.gameObject.transform.DOLocalMoveX(tweenDistance, _SwipeTweenDuration).SetEase(Ease.InOutSine).OnComplete(SwipeComplete);
     }

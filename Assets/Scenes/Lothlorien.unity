@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 1.5
+    Lifetime: 0.5
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 1.5
+    Lifetime: 0.5
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 1.5
+    Lifetime: 0.5
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 1.5
+    Lifetime: 0.5
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0

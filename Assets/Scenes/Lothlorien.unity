@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 0.5
+    Lifetime: 0.2
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31568925}
   - component: {fileID: 31568924}
+  - component: {fileID: 31568926}
   m_Layer: 0
   m_Name: LothlorienController
   m_TagString: Untagged
@@ -273,6 +274,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31568926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 31568923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f872ca6bbab7b324b8212e2e190d58f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Person1DrawingHolderLeft: {fileID: 1037392865}
+  Person1DrawingHolderRight: {fileID: 81224670}
+  Person1Prefab: {fileID: 1219580807248696, guid: 2b5bd2aaa0296d34bbfa13c45dc96c73,
+    type: 2}
+  Person2DrawingHolderLeft: {fileID: 1854659295}
+  Person2DrawingHolderRight: {fileID: 1811009322}
+  Person2Prefab: {fileID: 1219580807248696, guid: 6ad07614831633d41aab1ab772a7914c,
+    type: 2}
+--- !u!1 &81224670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 81224671}
+  m_Layer: 0
+  m_Name: DrawingTrailHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81224671
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81224670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1377194623}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &108185078
 GameObject:
@@ -491,6 +539,7 @@ Transform:
   - {fileID: 156680790}
   - {fileID: 1235503884}
   - {fileID: 1380222419}
+  - {fileID: 1854659296}
   m_Father: {fileID: 1749149295}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -649,7 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 0.5
+    Lifetime: 0.2
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -826,6 +875,7 @@ Transform:
   - {fileID: 402341913}
   - {fileID: 1902441265}
   - {fileID: 1497287926}
+  - {fileID: 1811009323}
   m_Father: {fileID: 1749149295}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 180.004, y: -91.36301, z: -0.1499939}
@@ -1184,6 +1234,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4468943291862422, guid: f1e8571ba2fe2403aab8dc378c8d2278,
     type: 2}
   m_PrefabInternal: {fileID: 865296735}
+--- !u!1 &1037392865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1037392866}
+  m_Layer: 0
+  m_Name: DrawingTrailHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037392866
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037392865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2005244370}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235503883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 0.5
+    Lifetime: 0.2
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -1325,16 +1403,17 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377194622}
-  m_LocalRotation: {x: 0.6986446, y: 0.0009366975, z: 0.71546775, w: 0.0009146728}
-  m_LocalPosition: {x: 0.0044769403, y: 0.0033781924, z: 0.002509369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1928910323}
   - {fileID: 261584013}
   - {fileID: 865296736}
+  - {fileID: 81224671}
   m_Father: {fileID: 1676604257}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 180.004, y: -91.36301, z: -0.1499939}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1377194624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1874,6 +1953,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1811009322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1811009323}
+  m_Layer: 0
+  m_Name: DrawingTrailHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1811009323
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811009322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 429648358}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1854659295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1854659296}
+  m_Layer: 0
+  m_Name: DrawingTrailHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854659296
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854659295}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 216672451}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886305023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,7 +2113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrailData:
     TrailMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    Lifetime: 0.5
+    Lifetime: 0.2
     UsingSimpleSize: 0
     SimpleSizeOverLifeStart: 0
     SimpleSizeOverLifeEnd: 0
@@ -2231,6 +2366,7 @@ Transform:
   - {fileID: 1910406543}
   - {fileID: 1359589329}
   - {fileID: 46135}
+  - {fileID: 1037392866}
   m_Father: {fileID: 1676604257}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
